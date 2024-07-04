@@ -1,0 +1,45 @@
+.div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 35px;
+  height: 800px;
+  color: white;
+}
+
+.securityDiv,
+.tagDiv,
+.contactDiv {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.mainDivs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.div h2 {
+  font-size: 35px;
+}
+
+.div ul {
+  list-style-type: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.div p {
+  font-size: 18px;
+  text-decoration: dashed;
+}
+
+.link {
+  text-decoration: underline;
+}

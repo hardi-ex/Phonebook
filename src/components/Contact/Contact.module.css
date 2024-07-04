@@ -1,0 +1,36 @@
+.mainDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.text {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 16px;
+}
+
+.icon {
+  font-size: 20px;
+  color: rgb(26, 31, 69);
+}
+
+.btn {
+  border-radius: 10px;
+  background-color: #634ea5;
+  color: white;
+  padding: 8px;
+
+  &:hover {
+    background-color: rgb(85, 99, 186);
+    transition: background-color 250ms ease-in-out;
+  }
+}
