@@ -68,13 +68,30 @@ export const addContact = createAsyncThunk(
   }
 );
 
-export const deleteContact = createAsyncThunk("id", async (id, thunkAPI) => {
-  try {
-    const { data } = await goItApi.delete(`/contacts/${id}`);
-    showSuccessToast("Successfully deleted");
-    return data.id;
-  } catch (error) {
-    showErrorToast("Something went wrong...");
-    return thunkAPI.rejectWithValue(error.message);
+export const deleteContact = createAsyncThunk(
+  "contacts/deleteContact",
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await goItApi.delete(`/contacts/${id}`);
+      showSuccessToast("Successfully deleted");
+      return data.id;
+    } catch (error) {
+      showErrorToast("Something went wrong...");
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
+
+export const updateContact = createAsyncThunk(
+  "contacts/updateContact",
+  async ({ id, ...contact }, thunkAPI) => {
+    try {
+      const { data } = await goItApi.patch(`/contacts/${id}`, contact);
+      showSuccessToast("Successfully edited");
+      return data;
+    } catch (error) {
+      showErrorToast("Something went wrong...");
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

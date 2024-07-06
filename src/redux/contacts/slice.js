@@ -3,6 +3,7 @@ import {
   fetchContacts,
   addContact,
   deleteContact,
+  updateContact,
 } from "../contacts/operations";
 import { selectFilter } from "../filters/selectors";
 import { selectContactsItems } from "./selectors";
@@ -30,6 +31,12 @@ const slice = createSlice({
         state.contacts.items = state.contacts.items.filter(
           (item) => item.id !== action.payload
         );
+      })
+      .addCase(updateContact.fulfilled, (state, action) => {
+        const index = state.contacts.items.findIndex(
+          (item) => item.id === action.payload.id
+        );
+        state.contacts.items[index] = action.payload;
       })
       .addMatcher(
         isAnyOf(fetchContacts.pending, addContact.pending),

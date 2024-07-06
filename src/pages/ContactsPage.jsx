@@ -12,6 +12,8 @@ import ContactForm from "../components/ContactForm/ContactForm";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchContacts } from "../redux/contacts/operations";
+import { useState } from "react";
+import { ModalForm } from "../components/ModalForm/ModalForm";
 
 export const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,14 @@ export const ContactsPage = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
   const isError = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
+  const [modalForm, setModalForm] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleModal = () => setIsOpen((prev) => !prev);
+  const openForm = (form) => {
+    toggleModal();
+    setModalForm(form);
+  };
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -49,8 +59,9 @@ export const ContactsPage = () => {
           <p className={css.textFound}>No contact found</p>
         )}
       {!isLoading && !isError && filteredContacts.length !== 0 && (
-        <ContactList users={filteredContacts} />
+        <ContactList users={filteredContacts} openForm={openForm} />
       )}
+      {isOpen && <ModalForm onClose={toggleModal} form={modalForm} />}
     </>
   );
 };

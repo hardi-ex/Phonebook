@@ -4,7 +4,7 @@ import { IoPersonSharp } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
 
-const Contact = ({ contact }) => {
+const Contact = ({ contact, openForm }) => {
   const { name, number, id } = contact;
   const dispatch = useDispatch();
 
@@ -43,6 +43,9 @@ const Contact = ({ contact }) => {
             {displayContact({ number })}
           </p>
         </div>
+        <button className={css.btn} type="button" onClick={openForm}>
+          Edit
+        </button>
         <button
           className={css.btn}
           type="button"
