@@ -62,7 +62,7 @@ export const addContact = createAsyncThunk(
       showSuccessToast("Successfully added");
       return data;
     } catch (error) {
-      showErrorToast("Something went wrong...");
+      showErrorToast("Something went wrong..");
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -76,7 +76,7 @@ export const deleteContact = createAsyncThunk(
       showSuccessToast("Successfully deleted");
       return data.id;
     } catch (error) {
-      showErrorToast("Something went wrong...");
+      showErrorToast("Something went wrong..");
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -90,7 +90,7 @@ export const updateContact = createAsyncThunk(
       showSuccessToast("Successfully edited");
       return data;
     } catch (error) {
-      showErrorToast("Something went wrong...");
+      showErrorToast("Something went wrong..");
       return thunkAPI.rejectWithValue(error.message);
     }
   }

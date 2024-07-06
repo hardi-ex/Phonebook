@@ -11,6 +11,11 @@
   gap: 10px;
 }
 
+.divBtn {
+  display: flex;
+  gap: 10px;
+}
+
 .text {
   display: flex;
   gap: 5px;

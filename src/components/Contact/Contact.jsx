@@ -43,16 +43,22 @@ const Contact = ({ contact, openForm }) => {
             {displayContact({ number })}
           </p>
         </div>
-        <button className={css.btn} type="button" onClick={openForm}>
-          Edit
-        </button>
-        <button
-          className={css.btn}
-          type="button"
-          onClick={() => dispatch(deleteContact(id))}
-        >
-          Delete
-        </button>
+        <div className={css.divBtn}>
+          <button
+            className={css.btn}
+            type="button"
+            onClick={() => openForm(contact)}
+          >
+            Edit
+          </button>
+          <button
+            className={css.btn}
+            type="button"
+            onClick={() => dispatch(deleteContact(id))}
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </>
   );
